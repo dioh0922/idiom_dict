@@ -10,64 +10,40 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	</head>
 	<body>
-		<div id="discription">
-			{{text}}
+
+		<div class="container">
+			<h1>開発関係辞書まとめ</h1>
 		</div>
 
-		<div id="input_form">
-			<label for="input_summary">概要</label>
-			<input type="text" value="概要" id="input_summary">
-			<br>
-			<label for="input_discription">説明</label>
-			<input type="text" value="" id="input_discription" width=60%>
+		<div id="idiom_dictionary">
+			<table class="table">
+				<thead>
+					<!--- 項目行でループして各メンバを並べてtheadにする -->
+					<tr>
+						<th v-for="(value, key) in columns">
+							{{value}}
+						</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<!--- tbodyは項目行のキーで各行のメンバを並べて1行を形成する --->
+					<tr v-for="word in words">
+						<td v-for="(value, key) in columns">
+							{{word[key]}}
+						</td>
+					</tr>
+
+					<tr>
+						<td>Vueのテンプレート</td>
+						<td>表示形式はコンポーネントでHTML, 内容はインスタンスでメンバとして持つ</td>
+						<td>サンプル</td>
+					</tr>
+
+				</tbody>
+			</table>
+
 		</div>
-
-<!--- サンプルコピペ  --->
-		<div id="components-demo">
-		  <button-counter></button-counter>
-		</div>
-
-<!--- v-forコピペ --->
-	<div id="todo-list-example">
-		<ul>
-			<li
-				is="todo-item"
-				v-for="(todo, index) in todos"
-				v-bind:key="todo.id"
-				v-bind:title="todo.title"
-			></li>
-		</ul>
-	</div>
-
-	<div id="idiom_dictionary">
-		<table class="table">
-			<thead>
-				<!--- 項目行でループして各メンバを並べてtheadにする -->
-				<tr>
-					<th v-for="(value, key) in columns">
-						{{value}}
-					</th>
-				</tr>
-			</thead>
-
-			<tbody>
-				<!--- tbodyは項目行のキーで各行のメンバを並べて1行を形成する --->
-				<tr v-for="word in words">
-					<td v-for="(value, key) in columns">
-						{{word[key]}}
-					</td>
-				</tr>
-
-				<tr>
-					<td>Vueのテンプレート</td>
-					<td>表示形式はコンポーネントでHTML, 内容はインスタンスでメンバとして持つ</td>
-					<td>サンプル</td>
-				</tr>
-
-			</tbody>
-		</table>
-
-	</div>
 
 		<script src="idiom_dict.js"></script>
 	</body>
