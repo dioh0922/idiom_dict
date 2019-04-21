@@ -8,6 +8,7 @@
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="idiom_dict.css"/>
 	</head>
 	<body>
 
@@ -15,36 +16,62 @@
 			<h1>開発関係辞書まとめ</h1>
 		</div>
 
-		<div id="idiom_dictionary">
-			<table class="table">
-				<thead>
-					<!--- 項目行でループして各メンバを並べてtheadにする -->
-					<tr>
-						<th v-for="(value, key) in columns">
-							{{value}}
-						</th>
-					</tr>
-				</thead>
+		<div class="tab_wrap">
+			<div class="tab_head">
+				<input id="tab1" type="radio" name="tab_btn" checked>
+				<input id="tab2" type="radio" name="tab_btn">
+				<label class="tab_label" id="tab1_label" for="tab1">イディオム辞書</label>
+				<label class="tab_label" id="tab2_label" for="tab2">勉強内容メモ</label>
+			</div>
 
-				<tbody>
-					<!--- tbodyは項目行のキーで各行のメンバを並べて1行を形成する --->
-					<tr v-for="word in words">
-						<td v-for="(value, key) in columns">
-							{{word[key]}}
-						</td>
-					</tr>
+			<div class="tab_area">
+				<div id="idiom_dictionary" v-show="display == true">
+					<table class="table">
+						<thead>
+							<!--- 項目行でループして各メンバを並べてtheadにする -->
+							<tr>
+								<th v-for="(value, key) in columns">
+									{{value}}
+								</th>
+							</tr>
+						</thead>
 
-					<tr>
-						<td>Vueのテンプレート</td>
-						<td>表示形式はコンポーネントでHTML, 内容はインスタンスでメンバとして持つ</td>
-						<td>サンプル</td>
-					</tr>
+						<tbody>
+							<!--- tbodyは項目行のキーで各行のメンバを並べて1行を形成する --->
+							<tr v-for="word in words">
+								<td v-for="(value, key) in columns">
+									{{word[key]}}
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 
-				</tbody>
-			</table>
+				<div id="study_list" v-show="display == true">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>対象</th>
+								<th>説明</th>
+								<th>分類</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<tr>
+								<td>laravel</td>
+								<td>PHPフレームワーク、MVCで表示内容を決める</td>
+								<td>PHP</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+			</div>
 
 		</div>
 
+		</div>
 		<script src="idiom_dict.js"></script>
 	</body>
 </html>

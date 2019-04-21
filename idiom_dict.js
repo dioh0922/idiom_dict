@@ -9,9 +9,11 @@ const column_title = {
 	category: "分類"
 }
 
-var test_func = new Vue({
+//イディオムの表示制御インスタンス
+var idiom_list_control = new Vue({
 	el: "#idiom_dictionary",
 	data: {
+		display: true,
 		columns: column_title,
 		words: [
 			{
@@ -23,6 +25,15 @@ var test_func = new Vue({
 	}
 });
 
+//勉強内容メモの表示制御インスタンス
+var study_list_control = new Vue({
+	el: "#study_list",
+	data:{
+		display: false,
+	}
+});
+
+
 //読み込みが終わってから要素を指定する
 document.addEventListener("DOMContentLoaded", function(event){
 
@@ -31,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function(event){
 		dictionary_arr = data;
 
 		//読み込んだ用語を指定して表示させる
-		test_func.words = dictionary_arr;
+		idiom_list_control.words = dictionary_arr;
 
 	});
 }); //addEventListenerのやつ

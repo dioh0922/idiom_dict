@@ -1,0 +1,36 @@
+
+.tab_wrap{
+
+}
+
+input[type="radio"]{
+	display: none;
+}
+
+.tab_area{
+	background: #ddddff;
+}
+
+.tab_label p{
+	font-size: 14px;
+}
+
+.tab_panel.active{
+	display: none;
+}
+
+.tab_head label{
+	width: 150px;
+	margin: 0 5px;
+	display: inline-block;
+	padding: 12px 0;
+	color: #000000;
+	background: #AAAAAA;
+	text-align: center;
+	font-size: 13px;
+}
+
+.tab_head label.active{
+	background: #dddddd;
+	color: #222222;
+}
