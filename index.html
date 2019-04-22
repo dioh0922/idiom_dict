@@ -18,11 +18,10 @@
 
 		<div class="tab_wrap">
 			<div class="tab_head" id="select_tab">
-				<input id="tab1" type="radio" name="tab_btn" value="イディオム辞書" v-model="selected_mode">
-				<input id="tab2" type="radio" name="tab_btn" value="勉強内容メモ" v-model="selected_mode">
+				<input id="tab1" type="radio" name="tab_btn" value="イディオム辞書" v-model="selected_mode" v-on:change="onChange">
+				<input id="tab2" type="radio" name="tab_btn" value="勉強内容メモ" v-model="selected_mode" v-on:change="onChange">
 				<label class="tab_label" id="tab1_label" for="tab1">イディオム辞書</label>
 				<label class="tab_label" id="tab2_label" for="tab2">勉強内容メモ</label>
-				<span> Select: {{selected_mode}}</span>
 			</div>
 
 			<div class="tab_area">

@@ -65,8 +65,23 @@ var select_list_mode = new Vue({
 		selected_mode: ""
 	},
 	methods: {
+		//変更イベント
 		onChange(){
-			console.log("onChange");
+			if(idiom_list_control.display == disp_mode.true){
+				//イディオムの方を非表示/勉強側を表示に切り替え
+				idiom_list_control.display = disp_mode.false;
+				study_list_control.display = disp_mode.true;
+			}else if(study_list_control.display == disp_mode.true){
+				//勉強側を非表示/イディオム側を表示に切り替え
+				study_list_control.display = disp_mode.false;
+				idiom_list_control.display = disp_mode.true;
+			}
+		}
+	},
+	computed: {
+		radioButton(){
+			console.log("comp");
+			return "a";
 		}
 	}
 });
@@ -81,8 +96,8 @@ document.addEventListener("DOMContentLoaded", function(event){
 		//読み込んだ用語を指定して表示させる
 		idiom_list_control.words = dictionary_arr;
 
-		idiom_list_control.display = 0;
-		study_list_control.display = 1;
+		idiom_list_control.display = 1;
+		study_list_control.display = 0;
 
 	});
 
