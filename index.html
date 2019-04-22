@@ -17,15 +17,16 @@
 		</div>
 
 		<div class="tab_wrap">
-			<div class="tab_head">
-				<input id="tab1" type="radio" name="tab_btn" checked>
-				<input id="tab2" type="radio" name="tab_btn">
+			<div class="tab_head" id="select_tab">
+				<input id="tab1" type="radio" name="tab_btn" value="イディオム辞書" v-model="selected_mode">
+				<input id="tab2" type="radio" name="tab_btn" value="勉強内容メモ" v-model="selected_mode">
 				<label class="tab_label" id="tab1_label" for="tab1">イディオム辞書</label>
 				<label class="tab_label" id="tab2_label" for="tab2">勉強内容メモ</label>
+				<span> Select: {{selected_mode}}</span>
 			</div>
 
 			<div class="tab_area">
-				<div id="idiom_dictionary" v-show="display == true">
+				<div id="idiom_dictionary" v-show="display">
 					<table class="table">
 						<thead>
 							<!--- 項目行でループして各メンバを並べてtheadにする -->
@@ -47,21 +48,21 @@
 					</table>
 				</div>
 
-				<div id="study_list" v-show="display == true">
+				<div id="study_list" v-show="display">
 					<table class="table">
 						<thead>
 							<tr>
-								<th>対象</th>
-								<th>説明</th>
-								<th>分類</th>
+								<th v-for="(value, key) in columns">
+									{{value}}
+								</th>
 							</tr>
 						</thead>
 
 						<tbody>
-							<tr>
-								<td>laravel</td>
-								<td>PHPフレームワーク、MVCで表示内容を決める</td>
-								<td>PHP</td>
+							<tr v-for="word in list">
+								<td v-for="(value, key) in columns">
+									{{word[key]}}
+								</td>
 							</tr>
 						</tbody>
 					</table>
