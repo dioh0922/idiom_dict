@@ -15,13 +15,19 @@
 		<div class="container">
 			<h1>開発関係辞書まとめ</h1>
 		</div>
-
 		<div class="tab_wrap">
 			<div class="tab_head" id="select_tab">
-				<input id="tab1" type="radio" name="tab_btn" value="イディオム辞書" v-model="selected_mode" v-on:change="onChange">
-				<input id="tab2" type="radio" name="tab_btn" value="勉強内容メモ" v-model="selected_mode" v-on:change="onChange">
-				<label class="tab_label" id="tab1_label" for="tab1">イディオム辞書</label>
-				<label class="tab_label" id="tab2_label" for="tab2">勉強内容メモ</label>
+
+				<input id="tab1" type="radio" name="tab_btn"
+					v-on:change="idiom_display"
+					v-model="checked"
+					v-bind:value="checked">
+
+				<input id="tab2" type="radio" name="tab_btn"
+				 v-on:change="study_display">
+
+				<label class="tab_label" id="tab1_label" for="tab1" v-bind:style="tab_style">イディオム辞書</label>
+				<label class="tab_label" id="tab2_label" for="tab2" v-bind:style="tab_style">勉強内容メモ</label>
 			</div>
 
 			<div class="tab_area">

@@ -23,7 +23,6 @@ const disp_mode = {
 	false: 0
 }
 
-
 //Vueインスタンス群
 //イディオムの表示制御インスタンス
 var idiom_list_control = new Vue({
@@ -57,31 +56,56 @@ var study_list_control = new Vue({
 	}
 });
 
-//表示切替のタブ用のインスタンス
-var select_list_mode = new Vue({
-	el: "#select_tab",
+//イディオム側タブのチェックボックスの制御インスタンス
+var idiom_chkbox_control = new Vue({
+	el: "#tab1",
 	data: {
-		//v-modelはinputのvalueを持つ
-		selected_mode: ""
+		checked: true,
 	},
 	methods: {
-		//変更イベント
-		onChange(){
-			if(idiom_list_control.display == disp_mode.true){
-				//イディオムの方を非表示/勉強側を表示に切り替え
-				idiom_list_control.display = disp_mode.false;
-				study_list_control.display = disp_mode.true;
-			}else if(study_list_control.display == disp_mode.true){
-				//勉強側を非表示/イディオム側を表示に切り替え
-				study_list_control.display = disp_mode.false;
-				idiom_list_control.display = disp_mode.true;
-			}
+		idiom_display(){
+			study_list_control.display = disp_mode.false;
+			idiom_list_control.display = disp_mode.true;
+			tab1_label_control.tab_style.background = "#AAAAAA";
+			tab2_label_control.tab_style.background = "#EEEEEE";
 		}
+	}
+});
+
+//イディオム側のラベルのインスタンス
+var tab1_label_control = new Vue({
+	el: "#tab1_label",
+	data: {
+		tab_style: {
+			"background": "#AAAAAA",
+			"color": "#000000"
+		}
+	}
+});
+
+//勉強側のタブのチェックボックスの制御インスタンス
+var study_chkbox_control = new Vue({
+	el: "#tab2",
+	data: {
+		checked: false,
 	},
-	computed: {
-		radioButton(){
-			console.log("comp");
-			return "a";
+	methods: {
+		study_display(){
+			study_list_control.display = disp_mode.true;
+			idiom_list_control.display = disp_mode.false;
+			tab1_label_control.tab_style.background = "#EEEEEE";
+			tab2_label_control.tab_style.background = "#AAAAAA";
+		}
+	}
+});
+
+//勉強側のラベルのインスタンス
+var tab2_label_control = new Vue({
+	el: "#tab2_label",
+	data: {
+		tab_style: {
+			"background": "#EEEEEE",
+			"color": "#000000"
 		}
 	}
 });
@@ -89,16 +113,9 @@ var select_list_mode = new Vue({
 //読み込みが終わってから要素を指定する
 document.addEventListener("DOMContentLoaded", function(event){
 
-	//表示内容をjsonから読み込んでおく
 	$.getJSON("idiom.json", function(data){
 		dictionary_arr = data;
-
-		//読み込んだ用語を指定して表示させる
 		idiom_list_control.words = dictionary_arr;
-
-		idiom_list_control.display = 1;
-		study_list_control.display = 0;
-
 	});
 
 	$.getJSON("study_memo.json", function(data){
