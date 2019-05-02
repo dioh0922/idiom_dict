@@ -4,7 +4,7 @@ input[type="radio"]{
 }
 
 .tab_area{
-	background: #ddddff;
+	background: #DDDDFF;
 }
 
 .tab_head label{
@@ -14,4 +14,15 @@ input[type="radio"]{
 	padding: 12px 0;
 	text-align: center;
 	font-size: 13px;
+}
+
+#idiom_select{
+	width: 80%;
+	background: #FFAAAA;
+	color: #FFFFFF;
+}
+
+#filter_word_area{
+	width: 80%;
+	background: #FFAAAA;
 }

@@ -12,5 +12,7 @@
 	{"target": "v-model", "summary": "input要素とインスタンスを結びつける inputの入力に応じて変化するようになる", "category": "Vue.js"},
 	{"target": "Vueのラジオボタン", "summary": "チェック初期値はv-modelとv-bindでフラグを掴んでおいてTRUEにする", "category": "Vue.js"},
 	{"target": "v-pre", "summary": "全ての子要素のコンパイルをスキップする 入れ子になっていた場合に子要素でコンパイルして処理させる", "category": "Vue.js"},
+	{"target": "computed", "summary": "算出プロパティ getter関数のようなもの 再描画されるたびに処理された結果がプロパティに入る", "category": "Vue.js"},
+	{"target": "filter()", "summary": "配列に対して与えた条件を満たす要素を抽出して配列を返す", "category": "JavaScript"},
 	{"target": "JSON形式", "summary": "配列の時は最後に','を付けない", "category": "形式"}
 ]

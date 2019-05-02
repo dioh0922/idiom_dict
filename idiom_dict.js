@@ -6,8 +6,7 @@ var study_list_arr = [];
 //表の項目行の部分 jsonのオブジェクトで持つ
 const idiom_column_title = {
 	word: "英単語",
-	mean: "意味",
-	category: "分類"
+	mean: "意味"
 }
 
 //勉強内容メモの項目行
@@ -23,6 +22,23 @@ const disp_mode = {
 	false: 0
 }
 
+const category_item = {
+	0: "内部操作",	//0から
+	1: "外部操作",
+	2: "データべース",
+	3: "取得",
+	4: "計算",
+	5: "データ出し入れ",
+	6: "権限",
+	7: "状態変化",
+	8: "処理する",
+	9: "確認",
+	10: "比較",
+	11: "認証",
+	12: "通信",
+	13: "その他"
+};
+
 //Vueインスタンス群
 //イディオムの表示制御インスタンス
 var idiom_list_control = new Vue({
@@ -33,10 +49,24 @@ var idiom_list_control = new Vue({
 		words: [
 			{
 				word: "",
-				mean: "",
-				category: ""
+				mean: ""
 			}
-		]
+		],
+		items: category_item,
+		select_category: ""
+	},
+	computed: {
+		filter_items: function(){
+			if(this.select_category != ""){
+				return this.words.filter(function(item){
+					if(idiom_list_control.select_category == item.category){
+						return item;
+					}
+				});
+			}else{
+				return this.words;
+			}
+		}
 	}
 });
 
@@ -52,7 +82,21 @@ var study_list_control = new Vue({
 				summary: "",
 				category: ""
 			}
-		]
+		],
+		filter_word: ""
+	},
+	computed: {
+		filter_study_item: function(){
+			if(this.filter_word != ""){
+				return this.list.filter(function(list_item){
+					if(list_item.target.toLowerCase().indexOf(study_list_control.filter_word.toLowerCase() ) > -1){
+						return list_item;
+					}
+				});
+			}else{
+				return this.list;
+			}
+		}
 	}
 });
 
