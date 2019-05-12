@@ -1,4 +1,8 @@
 
+h1{
+	font-size: 5vw;
+}
+
 input[type="radio"]{
 	display: none;
 }
@@ -8,21 +12,35 @@ input[type="radio"]{
 }
 
 .tab_head label{
-	width: 150px;
+	width: 40vw;
+	height: 10%;
 	margin: 0 5px;
 	display: inline-block;
 	padding: 12px 0;
 	text-align: center;
-	font-size: 13px;
+	font-size: 1.8vw;;
 }
 
 #idiom_select{
 	width: 80%;
+	height: 5vh;
+	font-size: 2vh;
 	background: #FFAAAA;
 	color: #FFFFFF;
 }
 
 #filter_word_area{
 	width: 80%;
+	height: 5vh;
 	background: #FFAAAA;
+}
+
+#idiom_dictionary{
+	width: 80vw;
+	font-size: 4vw;
+}
+
+#study_list{
+	width: 80vw;
+	font-size: 3vw;
 }

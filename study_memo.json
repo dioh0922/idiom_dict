@@ -14,5 +14,7 @@
 	{"target": "v-pre", "summary": "全ての子要素のコンパイルをスキップする 入れ子になっていた場合に子要素でコンパイルして処理させる", "category": "Vue.js"},
 	{"target": "computed", "summary": "算出プロパティ getter関数のようなもの 再描画されるたびに処理された結果がプロパティに入る", "category": "Vue.js"},
 	{"target": "filter()", "summary": "配列に対して与えた条件を満たす要素を抽出して配列を返す", "category": "JavaScript"},
-	{"target": "JSON形式", "summary": "配列の時は最後に','を付けない", "category": "形式"}
+	{"target": "JSON形式", "summary": "配列の時は最後に','を付けない", "category": "形式"},
+	{"target": "preg_match()", "summary": "(パターン文字列, 検索文字列)で実行する。 検索文字列の正規表現で一致するか返す", "category": "PHP"},
+	{"target": "preg_match_all()", "summary": "(パターン文字列, 検索文字列, 結果配列)で実行する。 検索文字列の正規表現で一致するか判定、一致したら配列に格納→[0][0]最初の一致とか", "category": "PHP"}
 ]
