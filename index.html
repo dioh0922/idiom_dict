@@ -15,7 +15,13 @@
 
 		<div class="container">
 			<h1>開発関係辞書まとめ</h1>
+			<a href="../index.html" class="btn btn-success">メインページへ移動</a>
+			<input type="button" class="btn btn-info" id="form_disp_btn" value="追記用フォーム" onclick="control_form_disp()"><br>
+			<div id="input_form" v-show="display">
+				<add_form_container></add_form_container>
+			</div>
 		</div>
+
 		<div class="tab_wrap">
 			<div class="tab_head" id="select_tab">
 
@@ -60,10 +66,12 @@
 							</tr>
 						</tbody>
 					</table>
-				</div>
+				</div><!--- idiom_dictionary END --->
 
 				<div id="study_list" v-show="display">
+					<label for="filter_word_area">対象欄で検索する文字列を入力</label>
 					<input type="text" v-model="filter_word" id="filter_word_area"><br>
+
 					<table class="table">
 						<thead>
 							<tr>
@@ -81,13 +89,12 @@
 							</tr>
 						</tbody>
 					</table>
-				</div>
+				</div> <!--- study_list END --->
 
-			</div>
+			</div> <!--- tab_area END --->
 
-		</div>
+		</div> <!--- tab_wrap END --->
 
-		</div>
 		<script src="idiom_dict.js"></script>
 	</body>
 </html>

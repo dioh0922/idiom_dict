@@ -3,11 +3,17 @@ h1{
 	font-size: 5vw;
 }
 
+.btn{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
 input[type="radio"]{
 	display: none;
 }
 
 .tab_area{
+	padding-top: 10px;
 	background: #DDDDFF;
 }
 
@@ -37,10 +43,19 @@ input[type="radio"]{
 
 #idiom_dictionary{
 	width: 80vw;
-	font-size: 4vw;
+	font-size: 3vw;
 }
 
 #study_list{
 	width: 80vw;
-	font-size: 3vw;
+	font-size: 2vw;
+}
+
+#add_study_form{
+	padding-bottom: 10px;
+}
+
+#input_form{
+	padding-top: 10px;
+	padding-bottom: 10px;
 }

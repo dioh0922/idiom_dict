@@ -154,6 +154,53 @@ var tab2_label_control = new Vue({
 	}
 });
 
+//フォームのテンプレート クリックイベントはコンポーネント側のメソッドに持つ
+const form_template =
+	'<input type="button" value="追記" v-on:click="onclick"><br>\n'
+	+ '<input type="text" v-model:value="target_name"><br>\n'
+	+ '<input type="text" v-model:value="discription"><br>\n'
+	+ '<input type="text" v-model:value="study_category"><br>\n';
+
+Vue.component("add_form_container", {
+	data: function(){
+		return{
+			//入力フォームの各入力文字列をbindして持つ
+			target_name: "対象を入力",
+			discription: "内容を記入する",
+			study_category: "分類を入力",
+		}
+	},
+	methods:{
+		onclick(){
+			var POST_data = {};
+			POST_data["target"] = this.target_name;
+			POST_data["disc"] = this.discription;
+			POST_data["category"] = this.study_category;
+
+			$.ajax({
+				type: "POST",
+				url: "http://localhost/idiom_dict/add_study.php",
+				cacha: false,
+				data: POST_data
+			})
+			.done(function(data){
+				console.log(data);
+			})
+			.fail(function(){
+				console.log("AJAX失敗");
+			});
+		}
+	},
+	template: '<form id="add_study_form">' + form_template + '</form>'
+});
+
+var add_study_form_control = new Vue({
+	el: "#input_form",
+	data: {
+		display: false
+	}
+});
+
 //読み込みが終わってから要素を指定する
 document.addEventListener("DOMContentLoaded", function(event){
 
@@ -168,3 +215,11 @@ document.addEventListener("DOMContentLoaded", function(event){
 	});
 
 }); //addEventListenerのやつ
+
+function control_form_disp(){
+	if(add_study_form_control.display == false){
+		add_study_form_control.display = true;
+	}else{
+		add_study_form_control.display = false;
+	}
+}
