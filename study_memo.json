@@ -1,20 +1,97 @@
 [
-	{"target": "laravel", "summary": "PHPのフレームワーク MVCで制御する", "category": "PHP"},
-	{"target": "MVC", "summary": "M:モデル V:ビュー C:コントローラに分割してそれぞれ記述する", "category": "PHP"},
-	{"target": "モデル", "summary": "データの処理するクラス データベースから取得とかする用途", "category": "PHP"},
-	{"target": "ビュー", "summary": "ブラウザに表示する部分 コントローラからの変数をHTMLに記述できる", "category": "PHP"},
-	{"target": "コントローラ", "summary": "処理と表示内容を結びつける 処理にアクセスしてビューの内容を返す", "category": "PHP"},
-	{"target": "ルーティング", "summary": "コントローラの処理へのアクセス方法を記述する アクセスに対しどの処理に行くか記述", "category": "PHP"},
-	{"target": "v-for", "summary": "HTML要素に変数を渡して繰り返し要素を取り出して表示する jsから配列渡すとか", "category": "Vue.js"},
-	{"target": "v-show", "summary": "表示するか判断させる 指定内容が1なら表示される", "category": "Vue.js"},
-	{"target": "v-on", "summary": "要素に指定したイベントリスナを設定する", "category": "Vue.js"},
-	{"target": "v-bind", "summary": "プロパティと式を結びつける 要素を指定するとその値と要素で組になる", "category": "Vue.js"},
-	{"target": "v-model", "summary": "input要素とインスタンスを結びつける inputの入力に応じて変化するようになる", "category": "Vue.js"},
-	{"target": "Vueのラジオボタン", "summary": "チェック初期値はv-modelとv-bindでフラグを掴んでおいてTRUEにする", "category": "Vue.js"},
-	{"target": "v-pre", "summary": "全ての子要素のコンパイルをスキップする 入れ子になっていた場合に子要素でコンパイルして処理させる", "category": "Vue.js"},
-	{"target": "computed", "summary": "算出プロパティ getter関数のようなもの 再描画されるたびに処理された結果がプロパティに入る", "category": "Vue.js"},
-	{"target": "filter()", "summary": "配列に対して与えた条件を満たす要素を抽出して配列を返す", "category": "JavaScript"},
-	{"target": "JSON形式", "summary": "配列の時は最後に','を付けない", "category": "形式"},
-	{"target": "preg_match()", "summary": "(パターン文字列, 検索文字列)で実行する。 検索文字列の正規表現で一致するか返す", "category": "PHP"},
-	{"target": "preg_match_all()", "summary": "(パターン文字列, 検索文字列, 結果配列)で実行する。 検索文字列の正規表現で一致するか判定、一致したら配列に格納→[0][0]最初の一致とか", "category": "PHP"}
+{
+    "target": "laravel",
+    "summary": "PHPのフレームワーク MVCで制御する",
+    "category": "PHP"
+},
+{
+    "target": "MVC",
+    "summary": "M:モデル V:ビュー C:コントローラに分割してそれぞれ記述する",
+    "category": "PHP"
+},
+{
+    "target": "モデル",
+    "summary": "データの処理するクラス データベースから取得とかする用途",
+    "category": "PHP"
+},
+{
+    "target": "ビュー",
+    "summary": "ブラウザに表示する部分 コントローラからの変数をHTMLに記述できる",
+    "category": "PHP"
+},
+{
+    "target": "コントローラ",
+    "summary": "処理と表示内容を結びつける 処理にアクセスしてビューの内容を返す",
+    "category": "PHP"
+},
+{
+    "target": "ルーティング",
+    "summary": "コントローラの処理へのアクセス方法を記述する アクセスに対しどの処理に行くか記述",
+    "category": "PHP"
+},
+{
+    "target": "v-for",
+    "summary": "HTML要素に変数を渡して繰り返し要素を取り出して表示する jsから配列渡すとか",
+    "category": "Vue.js"
+},
+{
+    "target": "v-show",
+    "summary": "表示するか判断させる 指定内容が1なら表示される",
+    "category": "Vue.js"
+},
+{
+    "target": "v-on",
+    "summary": "要素に指定したイベントリスナを設定する",
+    "category": "Vue.js"
+},
+{
+    "target": "v-bind",
+    "summary": "プロパティと式を結びつける 要素を指定するとその値と要素で組になる",
+    "category": "Vue.js"
+},
+{
+    "target": "v-model",
+    "summary": "input要素とインスタンスを結びつける inputの入力に応じて変化するようになる",
+    "category": "Vue.js"
+},
+{
+    "target": "Vueのラジオボタン",
+    "summary": "チェック初期値はv-modelとv-bindでフラグを掴んでおいてTRUEにする",
+    "category": "Vue.js"
+},
+{
+    "target": "v-pre",
+    "summary": "全ての子要素のコンパイルをスキップする 入れ子になっていた場合に子要素でコンパイルして処理させる",
+    "category": "Vue.js"
+},
+{
+    "target": "computed",
+    "summary": "算出プロパティ getter関数のようなもの 再描画されるたびに処理された結果がプロパティに入る",
+    "category": "Vue.js"
+},
+{
+    "target": "filter()",
+    "summary": "配列に対して与えた条件を満たす要素を抽出して配列を返す",
+    "category": "JavaScript"
+},
+{
+    "target": "JSON形式",
+    "summary": "配列の時は最後に','を付けない",
+    "category": "形式"
+},
+{
+    "target": "preg_match()",
+    "summary": "(パターン文字列, 検索文字列)で実行する。 検索文字列の正規表現で一致するか返す",
+    "category": "PHP"
+},
+{
+    "target": "preg_match_all()",
+    "summary": "(パターン文字列, 検索文字列, 結果配列)で実行する。 検索文字列の正規表現で一致するか判定、一致したら配列に格納→[0][0]最初の一致とか",
+    "category": "PHP"
+},
+{
+    "target": "Vueのクリック",
+    "summary": "v-onのclickを指定。インスタンスのメソッドに向ける。",
+    "category": "Vue.js"
+}
 ]

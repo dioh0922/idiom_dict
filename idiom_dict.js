@@ -157,9 +157,9 @@ var tab2_label_control = new Vue({
 //フォームのテンプレート クリックイベントはコンポーネント側のメソッドに持つ
 const form_template =
 	'<input type="button" value="追記" v-on:click="onclick"><br>\n'
-	+ '<input type="text" v-model:value="target_name"><br>\n'
-	+ '<input type="text" v-model:value="discription"><br>\n'
-	+ '<input type="text" v-model:value="study_category"><br>\n';
+	+ '<input type="text" v-model:value="target_name" v-on:click="target_text_click"><br>\n'
+	+ '<input type="text" v-model:value="discription" v-on:click="discription_text_click"><br>\n'
+	+ '<input type="text" v-model:value="study_category" v-on:click="category_text_click"><br>\n';
 
 Vue.component("add_form_container", {
 	data: function(){
@@ -174,7 +174,7 @@ Vue.component("add_form_container", {
 		onclick(){
 			var POST_data = {};
 			POST_data["target"] = this.target_name;
-			POST_data["disc"] = this.discription;
+			POST_data["summary"] = this.discription;
 			POST_data["category"] = this.study_category;
 
 			$.ajax({
@@ -183,12 +183,24 @@ Vue.component("add_form_container", {
 				cacha: false,
 				data: POST_data
 			})
-			.done(function(data){
-				console.log(data);
+			.done(function(){
+				$.getJSON("study_memo.json", function(data){
+					study_list_arr = data;
+					study_list_control.list = study_list_arr;
+				});
 			})
 			.fail(function(){
 				console.log("AJAX失敗");
 			});
+		},
+		target_text_click(){
+			this.target_name = "";
+		},
+		discription_text_click(){
+			this.discription = "";
+		},
+		category_text_click(){
+			this.study_category = "";
 		}
 	},
 	template: '<form id="add_study_form">' + form_template + '</form>'
