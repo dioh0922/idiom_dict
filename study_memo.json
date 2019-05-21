@@ -93,5 +93,15 @@
     "target": "Vueのクリック",
     "summary": "v-onのclickを指定。インスタンスのメソッドに向ける。",
     "category": "Vue.js"
+},
+{
+    "target": "password_hash()",
+    "summary": "文字列からハッシュ値を得る。DBに登録しておき、入力とverifyして一致するか？などに使う",
+    "category": "PHP"
+},
+{
+    "target": "password_verify()",
+    "summary": "生のパスワードとハッシュが一致するか判定する。",
+    "category": "PHP"
 }
 ]

@@ -156,10 +156,11 @@ var tab2_label_control = new Vue({
 
 //フォームのテンプレート クリックイベントはコンポーネント側のメソッドに持つ
 const form_template =
-	'<input type="button" value="追記" v-on:click="onclick"><br>\n'
-	+ '<input type="text" v-model:value="target_name" v-on:click="target_text_click"><br>\n'
+	'<input type="text" v-model:value="target_name" v-on:click="target_text_click"><br>\n'
 	+ '<input type="text" v-model:value="discription" v-on:click="discription_text_click"><br>\n'
-	+ '<input type="text" v-model:value="study_category" v-on:click="category_text_click"><br>\n';
+	+ '<input type="text" v-model:value="study_category" v-on:click="category_text_click"><br>\n'
+	+ 'PW:<input type="password" v-model:value="password">\n'
+	+	'<input type="button" value="追記" v-on:click="onclick">\n';
 
 Vue.component("add_form_container", {
 	data: function(){
@@ -168,6 +169,7 @@ Vue.component("add_form_container", {
 			target_name: "対象を入力",
 			discription: "内容を記入する",
 			study_category: "分類を入力",
+			password: ""
 		}
 	},
 	methods:{
@@ -176,6 +178,7 @@ Vue.component("add_form_container", {
 			POST_data["target"] = this.target_name;
 			POST_data["summary"] = this.discription;
 			POST_data["category"] = this.study_category;
+			POST_data["password"] = this.password;
 
 			$.ajax({
 				type: "POST",
