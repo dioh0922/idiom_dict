@@ -182,15 +182,19 @@ Vue.component("add_form_container", {
 
 			$.ajax({
 				type: "POST",
-				url: "http://localhost/idiom_dict/add_study.php",
+				url: "./add_study.php",
 				cacha: false,
 				data: POST_data
 			})
-			.done(function(){
-				$.getJSON("study_memo.json", function(data){
-					study_list_arr = data;
-					study_list_control.list = study_list_arr;
-				});
+			.done(function(response){
+				try{
+					let api_result = JSON.parse(response);
+					if(api_result.result == 1){
+						get_study_memo();
+					}
+				}catch(e){
+					alert(e.toString());
+				}
 			})
 			.fail(function(){
 				console.log("AJAX失敗");
