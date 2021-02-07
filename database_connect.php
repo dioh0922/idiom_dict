@@ -4,12 +4,10 @@ function db_connect($query){
 	mb_language("ja");
 	mb_internal_encoding("UTF-8");
 
-	$url = "localhost";
-	$user = "";
-	$pass = "";
-	$db = "";
+	//設定ファイルを別階層の定数にする
+	require(dirname(__FILE__)."/../env/connection_setting.php");
 
-	$mysqli = new mysqli($url, $user, $pass, $db);
+	$mysqli = new mysqli($SQL_HOST, $SQL_USER, $SQL_PASS, $SQL_DB);
 	if($mysqli->connect_error){
 		print $mysqli->connect_error;
 		exit();

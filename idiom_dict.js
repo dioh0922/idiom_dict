@@ -182,15 +182,19 @@ Vue.component("add_form_container", {
 
 			$.ajax({
 				type: "POST",
-				url: "http://localhost/idiom_dict/add_study.php",
+				url: "./add_study.php",
 				cacha: false,
 				data: POST_data
 			})
-			.done(function(){
-				$.getJSON("study_memo.json", function(data){
-					study_list_arr = data;
-					study_list_control.list = study_list_arr;
-				});
+			.done(function(response){
+				try{
+					let api_result = JSON.parse(response);
+					if(api_result.result == 1){
+						get_study_memo();
+					}
+				}catch(e){
+					alert(e.toString());
+				}
 			})
 			.fail(function(){
 				console.log("AJAX失敗");
@@ -219,15 +223,8 @@ var add_study_form_control = new Vue({
 //読み込みが終わってから要素を指定する
 document.addEventListener("DOMContentLoaded", function(event){
 
-	$.getJSON("idiom.json", function(data){
-		dictionary_arr = data;
-		idiom_list_control.words = dictionary_arr;
-	});
-
-	$.getJSON("study_memo.json", function(data){
-		study_list_arr = data;
-		study_list_control.list = study_list_arr;
-	});
+	get_idiom_list();
+	get_study_memo();
 
 }); //addEventListenerのやつ
 
@@ -237,4 +234,44 @@ function control_form_disp(){
 	}else{
 		add_study_form_control.display = false;
 	}
+}
+
+function get_idiom_list(){
+	$.ajax({
+		type:"GET",
+		url:"./load_idiom_list.php"
+	}).done(function(response){
+		try{
+			let api_result = JSON.parse(response);
+			if(api_result.result == 1){
+				idiom_list_control.words = api_result.list;
+			}else{
+				throw new Error(api_result.message);
+			}
+		}catch(e){
+			alert(e.toString());
+		}
+	}).fail(function(){
+		alert("辞書の読み込みに失敗しました");
+	});
+}
+
+function get_study_memo(){
+	$.ajax({
+		type: "GET",
+		url:"./load_study_memo.php"
+	}).done(function(response){
+		try{
+			let api_result = JSON.parse(response);
+			if(api_result.result == 1){
+				study_list_control.list = api_result.list;
+			}else{
+				throw new Error(api_result.message);
+			}
+		}catch(e){
+
+		}
+	}).fail(function(){
+		alert("覚え書きの読み込みに失敗しました");
+	});
 }
